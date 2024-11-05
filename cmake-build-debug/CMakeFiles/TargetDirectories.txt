@@ -1,0 +1,3 @@
+/home/golimghost/Desktop/CProj/Laba_4/cmake-build-debug/CMakeFiles/main.dir
+/home/golimghost/Desktop/CProj/Laba_4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/golimghost/Desktop/CProj/Laba_4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
