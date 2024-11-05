@@ -7,4 +7,6 @@ include_directories(.)
 
 add_executable(main
         main.cpp
+        structures.cpp
+        structures.h
 )

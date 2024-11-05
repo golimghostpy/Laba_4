@@ -56,6 +56,13 @@ build CMakeFiles/main.dir/main.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/g
   OBJECT_DIR = CMakeFiles/main.dir
   OBJECT_FILE_DIR = CMakeFiles/main.dir
 
+build CMakeFiles/main.dir/structures.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/golimghost/Desktop/CProj/Laba_4/structures.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/structures.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/golimghost/Desktop/CProj/Laba_4/.
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target main
@@ -64,7 +71,7 @@ build CMakeFiles/main.dir/main.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/g
 #############################################
 # Link the executable /home/golimghost/Desktop/CProj/Laba_4/bin/main
 
-build /home/golimghost/Desktop/CProj/Laba_4/bin/main: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.o
+build /home/golimghost/Desktop/CProj/Laba_4/bin/main: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/structures.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/main.dir
   POST_BUILD = :
