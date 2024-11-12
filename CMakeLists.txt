@@ -9,4 +9,8 @@ add_executable(main
         main.cpp
         structures.cpp
         structures.h
+        task2.cpp
+        task2.h
+        task1.cpp
+        task1.h
 )

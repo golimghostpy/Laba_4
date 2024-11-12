@@ -63,6 +63,20 @@ build CMakeFiles/main.dir/structures.cpp.o: CXX_COMPILER__main_unscanned_Debug /
   OBJECT_DIR = CMakeFiles/main.dir
   OBJECT_FILE_DIR = CMakeFiles/main.dir
 
+build CMakeFiles/main.dir/task2.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/golimghost/Desktop/CProj/Laba_4/task2.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/task2.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/golimghost/Desktop/CProj/Laba_4/.
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir
+
+build CMakeFiles/main.dir/task1.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/golimghost/Desktop/CProj/Laba_4/task1.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/task1.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -I/home/golimghost/Desktop/CProj/Laba_4/.
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target main
@@ -71,7 +85,7 @@ build CMakeFiles/main.dir/structures.cpp.o: CXX_COMPILER__main_unscanned_Debug /
 #############################################
 # Link the executable /home/golimghost/Desktop/CProj/Laba_4/bin/main
 
-build /home/golimghost/Desktop/CProj/Laba_4/bin/main: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/structures.cpp.o
+build /home/golimghost/Desktop/CProj/Laba_4/bin/main: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/structures.cpp.o CMakeFiles/main.dir/task2.cpp.o CMakeFiles/main.dir/task1.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/main.dir
   POST_BUILD = :
