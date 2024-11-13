@@ -1,9 +1,14 @@
 # ninja log v6
-1	108	1731416930414179228	build.ninja	92937dde9cc17989
-6	1270	1731416699822941081	CMakeFiles/main.dir/main.cpp.o	6aec26bda22dfb72
-1561	1731	1731416701379719093	/home/golimghost/Desktop/CProj/Laba_4/bin/main	d78ce33699241559
+1	108	1731506373482514806	build.ninja	92937dde9cc17989
+2	2427	1731417623006308472	CMakeFiles/main.dir/main.cpp.o	6aec26bda22dfb72
+1217	1353	1731417632731168474	/home/golimghost/Desktop/CProj/Laba_4/bin/main	9171c911981e0e04
 2	964	1730825236590528393	CMakeFiles/main.dir/structures.cpp.o	c1fb7c4b04fcd0d8
 16	1561	1731416699834947081	CMakeFiles/main.dir/task2.cpp.o	3a47e49d8669c4d0
-2	2427	1731417623006308472	CMakeFiles/main.dir/main.cpp.o	6aec26bda22dfb72
 7	1217	1731417631518562473	CMakeFiles/main.dir/task1.cpp.o	a297521382a31840
-1217	1353	1731417632731168474	/home/golimghost/Desktop/CProj/Laba_4/bin/main	9171c911981e0e04
+4	2542	1731509768753546261	CMakeFiles/main.dir/main.cpp.o	6aec26bda22dfb72
+2	2365	1731509854738532192	CMakeFiles/main.dir/task1.cpp.o	a297521382a31840
+2365	2628	1731509857101350189	/home/golimghost/Desktop/CProj/Laba_4/bin/main	9171c911981e0e04
+3	2487	1731510150890382043	CMakeFiles/main.dir/task1.cpp.o	a297521382a31840
+2489	2862	1731510153361146020	/home/golimghost/Desktop/CProj/Laba_4/bin/main	9171c911981e0e04
+1	3509	1731510214978322012	CMakeFiles/main.dir/task1.cpp.o	a297521382a31840
+3524	3778	1731510218476572010	/home/golimghost/Desktop/CProj/Laba_4/bin/main	9171c911981e0e04

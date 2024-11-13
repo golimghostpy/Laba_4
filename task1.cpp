@@ -3,6 +3,10 @@
 mutex muter;
 counting_semaphore cntSem(1);
 barrier<>* bar = nullptr;
+SpinLock spinlock;
+SpinWait spinwait;
+Monitor monitor;
+SemaphoreSlim* slim = nullptr;
 
 void race_simulation(const unsigned int& cntSymbols, const unsigned int& threadId, const string& primitive)
 {
@@ -34,7 +38,9 @@ void race_simulation(const unsigned int& cntSymbols, const unsigned int& threadI
     }
     else if (primitive == "semaphoreslim")
     {
+        slim->wait();
         cout << "Thread " << threadId << " race result: " << raceRes << endl;
+        slim->release();
     }
     else if (primitive == "barrier")
     {
@@ -44,15 +50,21 @@ void race_simulation(const unsigned int& cntSymbols, const unsigned int& threadI
     }
     else if (primitive == "spinlock")
     {
+        spinlock.lock();
         cout << "Thread " << threadId << " race result: " << raceRes << endl;
+        spinlock.unlock();
     }
     else if (primitive == "spinwait")
     {
+        spinwait.wait();
         cout << "Thread " << threadId << " race result: " << raceRes << endl;
+        spinwait.reset();
     }
     else
     {
+        monitor.wait();
         cout << "Thread " << threadId << " race result: " << raceRes << endl;
+        monitor.notify();
     }
 }
 
@@ -68,7 +80,7 @@ void use_primitives(const unsigned int& cntThreads, const unsigned int& cntSymbo
 
         for (unsigned int j = 0; j < cntThreads; ++j)
         {
-            allThreads[i] = thread(race_simulation, ref(cntSymbols), ref(j), ref(i));
+            allThreads[j] = thread(race_simulation, ref(cntSymbols), ref(j), ref(i));
         }
 
         for (auto& i: allThreads)
@@ -95,6 +107,9 @@ void task_1()
     cout << "Enter count of symbols in race: ";
     unsigned int cntSymbols;
     cin >> cntSymbols;
+
+    bar = new barrier<>(cntThreads);
+    slim = new SemaphoreSlim(1);
 
     use_primitives(cntThreads, cntSymbols);
 }
