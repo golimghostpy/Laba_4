@@ -13,4 +13,6 @@ add_executable(main
         task2.h
         task1.cpp
         task1.h
+        task3.cpp
+        task3.h
 )

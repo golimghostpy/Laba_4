@@ -2,7 +2,7 @@
 
 unsigned int MAX_THREADS;
 
-StringList split(const string& str, const string& delimiter) {
+StringList split(const string& str, const string& delimiter) { // разбиение строки в односвязный список
     StringList result;
     string currentPart;
     int delimiterLength = delimiter.size();
@@ -31,8 +31,9 @@ StringList split(const string& str, const string& delimiter) {
     return result;
 }
 
+// проверка без многопотока
 void no_threads(CarArray& carShowroom, unsigned int minCost, unsigned int maxCost, unsigned int maxMileage, uint8_t minYear){
-    mutex Mute;
+    mutex Mute; // заглушка для проверяющей функции
     for (unsigned int i = 0; i < carShowroom.size; ++i){
         is_suitable(carShowroom.get_at(i), minCost, maxCost, maxMileage, minYear, Mute);
     }
@@ -40,20 +41,18 @@ void no_threads(CarArray& carShowroom, unsigned int minCost, unsigned int maxCos
 
 void worker(CarArray& carShowroom, unsigned int minCost, unsigned int maxCost, unsigned int maxMileage, unsigned int minYear, unsigned int& checkedCars, mutex& Mute) {
     while (true) {
-        int index;
-
         if (checkedCars >= carShowroom.size) {
             break;
         }
-        index = checkedCars++;
 
-        is_suitable(carShowroom.get_at(index), minCost, maxCost, maxMileage, minYear, Mute);
+        is_suitable(carShowroom.get_at(checkedCars++), minCost, maxCost, maxMileage, minYear, Mute);
     }
 }
 
+// проверка с многопотоком
 void with_threads(CarArray& carShowroom, unsigned int minCost, unsigned int maxCost, unsigned int maxMileage, uint8_t minYear){
     thread allThreads[MAX_THREADS];
-    unsigned int checkedCars = 0;
+    unsigned int checkedCars = 0; // общий счетчик для потоков
     mutex Mute;
 
     for (auto i = 0; i < MAX_THREADS; ++i) {
@@ -99,7 +98,7 @@ void task_2()
     int inputChoice;
     cin >> inputChoice;
 
-    if (inputChoice == 1){
+    if (inputChoice == 1){ // ручной ввод автомобилей
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         cout << "Enter " << arrSize << " strings according to the template" << endl;
@@ -110,7 +109,7 @@ void task_2()
             carShowroom.push_back(split(temp, " "));
         }
     }
-    else if (inputChoice == 2){
+    else if (inputChoice == 2){ // выборка данных из файла
         ifstream sourceFile("data.txt");
         if (!sourceFile.is_open()){
             cout << "No such a file" << endl;

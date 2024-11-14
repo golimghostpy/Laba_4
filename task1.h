@@ -86,6 +86,7 @@ private:
     condition_variable cv;
 };
 
+void race_simulation(const unsigned int&, const unsigned int&, const string&);
 void use_primitives(const unsigned int&, const unsigned int&);
 void task_1();
 

@@ -1,12 +1,12 @@
 #include "task1.h"
 
-mutex muter;
-counting_semaphore cntSem(1);
-barrier<>* bar = nullptr;
-SpinLock spinlock;
-SpinWait spinwait;
-Monitor monitor;
-SemaphoreSlim* slim = nullptr;
+mutex muter; // закрывает блок кода для остальных потоков, блокируя их, пока место не освободится
+counting_semaphore cntSem(1); // может предоставить доступ нескольким потокам
+barrier<>* bar = nullptr; // собирает все потоки в указанном месте
+SpinLock spinlock; // не получив доступ, поток не блокируется, а "крутится" и проверяет состояние блокировки
+SpinWait spinwait; // использует более оптимизированные методы ожидания (например, yield())
+Monitor monitor; // в отличие от mutex, имеет механизмы ожидания и оповещения
+SemaphoreSlim* slim = nullptr; // более облегченная версия обычного semaphore (не может работать с потоками из разных контекстов)
 
 void race_simulation(const unsigned int& cntSymbols, const unsigned int& threadId, const string& primitive)
 {
