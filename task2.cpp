@@ -139,5 +139,6 @@ void task_2()
     with_threads(carShowroom, minCost, maxCost, maxMileage, minYear);
     auto endWithThreads = chrono::high_resolution_clock::now();
     chrono::duration<double> durationWithThreads = endWithThreads - startWithThreads;
+    // cout << endl << "Lead time with no threads: " << durationNoThreads.count() * 1000 << " ms." << endl;
     cout << endl << "Lead time with threads: " << durationWithThreads.count() * 1000 << " ms." << endl;
 }

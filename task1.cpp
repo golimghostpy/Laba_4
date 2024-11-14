@@ -8,7 +8,7 @@ SpinWait spinwait; // использует более оптимизирован
 Monitor monitor; // в отличие от mutex, имеет механизмы ожидания и оповещения
 SemaphoreSlim* slim = nullptr; // более облегченная версия обычного semaphore (не может работать с потоками из разных контекстов)
 
-void race_simulation(const unsigned int& cntSymbols, const unsigned int& threadId, const string& primitive)
+void race_simulation(const unsigned int& cntSymbols, unsigned int threadId, const string& primitive)
 {
     random_device rd;
     mt19937 gen(rd());
@@ -80,7 +80,7 @@ void use_primitives(const unsigned int& cntThreads, const unsigned int& cntSymbo
 
         for (unsigned int j = 0; j < cntThreads; ++j)
         {
-            allThreads[j] = thread(race_simulation, ref(cntSymbols), ref(j), ref(i));
+            allThreads[j] = thread(race_simulation, ref(cntSymbols), j, ref(i));
         }
 
         for (auto& i: allThreads)
