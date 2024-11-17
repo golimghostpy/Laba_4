@@ -10,7 +10,7 @@ struct Philosopher
 
     Philosopher(unsigned int num, mutex& lF, mutex& rF) : id(num), leftFork(lF), rightFork(rF) {}
 
-    void doing()
+    void doing() // у каждого философа есть два состояния: есть и думать. Они чередуются
     {
         while (true)
         {
@@ -50,6 +50,7 @@ void task_3()
 
     for (unsigned int i = 0; i < 5; ++i)
     {
+        // добавляем поток в вектор, запуская метод
         philosophers.emplace_back(&Philosopher::doing, Philosopher(i + 1, forks[i], forks[(i + 1) % 5]));
     }
 

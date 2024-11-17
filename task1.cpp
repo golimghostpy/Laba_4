@@ -16,7 +16,7 @@ void race_simulation(const unsigned int& cntSymbols, unsigned int threadId, cons
     uniform_int_distribution<int> distribution(65, 122);
 
     string raceRes;
-    for (auto i = 0; i < cntSymbols; ++i)
+    for (auto i = 0; i < cntSymbols; ++i) // генерируем строку случайных символов заданной длины
     {
         raceRes += static_cast<char>(distribution(gen));
     }
@@ -71,14 +71,14 @@ void race_simulation(const unsigned int& cntSymbols, unsigned int threadId, cons
 void use_primitives(const unsigned int& cntThreads, const unsigned int& cntSymbols)
 {
     vector<string> primitives = {"noprimitive", "mutexes", "semaphore", "semaphoreslim", "barrier", "spinlock", "spinwait", "monitor"};
-    for (auto i: primitives)
+    for (auto i: primitives) // по очереди перебираем примитивы
     {
         cout << "Primitive - " << i << endl;
         thread allThreads[cntThreads];
 
-        auto start = chrono::high_resolution_clock::now();
+        auto start = chrono::high_resolution_clock::now(); // начинаем подсчет веремени
 
-        for (unsigned int j = 0; j < cntThreads; ++j)
+        for (unsigned int j = 0; j < cntThreads; ++j) // выделяем заданное количество потоков для гонки
         {
             allThreads[j] = thread(race_simulation, ref(cntSymbols), j, ref(i));
         }
@@ -91,7 +91,7 @@ void use_primitives(const unsigned int& cntThreads, const unsigned int& cntSymbo
             }
         }
 
-        auto end = chrono::high_resolution_clock::now();
+        auto end = chrono::high_resolution_clock::now(); // заканчиваем подсчет
         chrono::duration<double> duration = end - start;
         cout << endl << "Lead time with " << i << ": " << duration.count() * 1000 << " ms." << endl;
         cout << "------------------------------------------------" << endl;
