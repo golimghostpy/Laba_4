@@ -27,8 +27,10 @@ void race_simulation(const unsigned int& cntSymbols, unsigned int threadId, cons
     }
     else if (primitive == "mutexes")
     {
+        {
         lock_guard<mutex> lock(muter);
         cout << "Thread " << threadId << " race result: " << raceRes << endl;
+        }
     }
     else if (primitive == "semaphore")
     {

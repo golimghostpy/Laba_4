@@ -38,8 +38,10 @@ void StringList::print(string delimiter){
 void is_suitable (Car car, unsigned int from, unsigned int to, unsigned int maxMileage, unsigned int minYear, mutex& Mute){
     if (car.cost >= from && car.cost <= to && car.mileage <= maxMileage && car.year >= minYear)
     {
-        lock_guard<mutex> locker(Mute);
-        cout << car.marka << " " << car.cost << " " << car.mileage << " " << car.bodyType << " " << car.year << endl;
+        {
+            lock_guard<mutex> locker(Mute);
+            cout << car.marka << " " << car.cost << " " << car.mileage << " " << car.bodyType << " " << car.year << endl;
+        }
     }
 }
 
